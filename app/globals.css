@@ -1,0 +1,82 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-playfair: var(--font-playfair);
+  --font-mono: var(--font-mono);
+  
+  --color-background: #FAF9F6;
+  --color-surface: #FFFFFF;
+  --color-border-custom: #E5E7EB;
+  --color-text-primary: #111111;
+  --color-text-muted: #6B7280;
+  --color-accent: #D97706;
+  --color-accent-dark: #B45309;
+  --color-success: #059669;
+  --color-dark-bg: #111111;
+  --color-dark-surface: #1F2937;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+    font-family: Georgia, serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+  
+  .mono-label {
+    @apply font-mono uppercase tracking-[0.08em] text-[11px];
+  }
+}
+
+@layer components {
+  .study-card {
+    @apply bg-white border-l-4 border-l-accent shadow-sm transition-all duration-200 ease-in-out;
+  }
+  
+  .study-card:hover {
+    @apply -translate-x-[2px] -translate-y-[2px] shadow-[4px_4px_0_#D97706];
+  }
+  
+  .study-btn {
+    @apply rounded-[2px] font-mono uppercase tracking-[0.08em] text-[12px] px-4 py-2 transition-all duration-150 ease-in-out;
+  }
+  
+  .study-btn-primary {
+    @apply bg-accent text-white hover:bg-accent-dark;
+  }
+  
+  .study-btn-secondary {
+    @apply border border-border-custom text-text-primary hover:bg-gray-50;
+  }
+  
+  .study-btn-dark {
+    @apply bg-dark-bg text-white hover:bg-black;
+  }
+  
+  .accent-underline {
+    @apply w-10 h-[3px] bg-accent;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 400ms ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 250ms ease forwards;
+}
